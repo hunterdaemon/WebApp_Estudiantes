@@ -66,6 +66,15 @@ public class Datos_Basicos_Curso {
         this.codigo = codigo;
     }
 
+    public String getNombreS(){
+        String a="";
+        for (int i = 0; i < nombre.length; i++) {
+            a=a+nombre[i];
+        }
+        return a;
+    }
+    
+    
     public char[] getNombre() {
         return nombre;
     }

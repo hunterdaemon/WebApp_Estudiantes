@@ -75,7 +75,13 @@ public class Datos_Basicos_Estudiantes {
         
         
     }
-
+public String getNameS() {
+    String a = "";
+        for (int i = 0; i < name.length; i++) {
+            a=a+name[i];
+        }
+        return a;
+    }
     public char[] getName() {
         return name;
     }
@@ -86,6 +92,14 @@ public class Datos_Basicos_Estudiantes {
 
     public char[] getLastname() {
         return lastname;
+    }
+
+    public String getLastnameS() {
+              String b = "";
+        for (int i = 0; i < lastname.length; i++) {
+            b=b+lastname[i];
+        }
+        return b;
     }
 
     public void setLastname(char[] lastname) {

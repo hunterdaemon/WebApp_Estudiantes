@@ -54,7 +54,7 @@ public class Estudiantes extends HttpServlet {
             if (userName !=null && !userName.equalsIgnoreCase("") && userLastName !=null && !userLastName.equalsIgnoreCase("") 
                     && userTelefono !=null && !userTelefono.equalsIgnoreCase("") && userId !=null && !userId.equalsIgnoreCase(""))
             {
-                db=new Datos_Basicos_Estudiantes(userName,userLastName,userId,userTelefono);
+                db=new Datos_Basicos_Estudiantes(userName,userLastName,userTelefono,userId);
                 bd.agregar(db);
 //                out.println(bd.toString());
                 response.sendRedirect("Portada.html");
