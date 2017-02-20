@@ -5,13 +5,14 @@
  */
 package Controlador;
 
-import Modelo.Base_Datos;
-import Modelo.Datos_Basicos;
+import Modelo.Base_Datos_Estudiantes;
+import Modelo.Datos_Basicos_Estudiantes;
 import static com.sun.xml.xsom.impl.UName.comparator;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.PriorityQueue;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Registro extends HttpServlet {
   
-    Base_Datos bd=new Base_Datos();ArrayList<Object> at = new ArrayList<Object>();
+    Base_Datos_Estudiantes bd=new Base_Datos_Estudiantes();ArrayList<Object> at = new ArrayList<Object>();
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,6 +43,8 @@ public class Registro extends HttpServlet {
             String boton = request.getParameter("Botones");
               if (boton.equals("Cargar")) {
                   at=bd.cargar();
+                  
+                  
                   for (int i = 0; i < at.size(); i++) {
                       out.println(at.get(i)+"\n");
                   }

@@ -9,7 +9,7 @@ package Modelo;
  *
  * @author David
  */
-public class Datos_Basicos {
+public class Datos_Basicos_Estudiantes {
 
     @Override
     public String toString() {
@@ -21,22 +21,22 @@ public class Datos_Basicos {
         for (int i = 0; i < lastname.length; i++) {
             b=b+lastname[i];
         }
-        return  "name=" + a + ", lastname=" + b + ", promedio=" + promedio + ", genero=" + genero + "\n";
+        return  "name=" + a + ", lastname=" + b + ", telefono=" + telefono + ", Id=" + Id + "\n";
     }
     
     private char[] name;
     private char[] lastname;
-    private double promedio;
-    private int genero;
+    private int telefono;
+    private int Id;
 
-    public Datos_Basicos() {
+    public Datos_Basicos_Estudiantes() {
         this.name = new char[20];
         this.lastname = new char[20];
-        this.promedio = promedio;
-        this.genero = genero;
+        this.telefono = telefono;
+        this.Id = Id;
     }
 
-    public Datos_Basicos(String name, String lastname, String promedio, String genero) {
+    public Datos_Basicos_Estudiantes(String name, String lastname, String telefono, String Id) {
         
        char[] a=new char[20];
        char[] b= name.toCharArray();
@@ -70,13 +70,10 @@ public class Datos_Basicos {
         
         this.name = a;
         this.lastname = c;
-        this.promedio = Double.valueOf(promedio);
+        this.telefono = Integer.valueOf(telefono);
+        this.Id=Integer.valueOf(Id);
         
-        if (genero.equals("Masculino")) {
-           this.genero=1;  
-        }else{
-            this.genero=0;
-        }
+        
     }
 
     public char[] getName() {
@@ -95,21 +92,23 @@ public class Datos_Basicos {
         this.lastname = lastname;
     }
 
-    public double getPromedio() {
-        return promedio;
+    public int getTelefono() {
+        return telefono;
     }
 
-    public void setPromedio(double promedio) {
-        this.promedio = promedio;
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
 
-    public int getGenero() {
-        return genero;
+    public int getId() {
+        return Id;
     }
 
-    public void setGenero(int genero) {
-        this.genero = genero;
+    public void setId(int Id) {
+        this.Id = Id;
     }
+
+
 
 
     

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.PriorityQueue;
-import Modelo.Datos_Basicos;
+import Modelo.Datos_Basicos_Estudiantes;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -20,26 +20,26 @@ import java.util.Collections;
  *
  * @author David
  */
-public class Base_Datos {
+public class Base_Datos_Estudiantes {
     
     private ArrayList<Object> estudiantes;
     ArrayList colita = new ArrayList<>();
     
-    public Base_Datos() {
+    public Base_Datos_Estudiantes() {
         this.estudiantes = new ArrayList<>();
     }
     
-    public void agregar (Datos_Basicos e){
+    public void agregar (Datos_Basicos_Estudiantes e){
     this.estudiantes.add(e);
     archivo(e);
     }
     
-    public void archivo(Datos_Basicos e){
+    public void archivo(Datos_Basicos_Estudiantes e){
         try {
          RandomAccessFile raf = new RandomAccessFile("Estudiantes.txt", "rw");
          long tamaño=raf.length();
           File archivo = new File("Estudiantes.txt");
-            System.out.println(archivo.getAbsolutePath()+"hmmmmizii");
+//            System.out.println(archivo.getAbsolutePath()+"hmmmmizii");
             raf.seek(tamaño);
          
          
@@ -52,8 +52,8 @@ public class Base_Datos {
 //              for (int j = 0; j < 5; j++) {
 //                 raf.writeChar((int)e.getPromedio()[j]); 
 //              }
-            raf.writeDouble(e.getPromedio());
-            raf.writeInt(e.getGenero());
+                raf.writeInt(e.getTelefono());
+                raf.writeInt(e.getId());
             
           // set the file pointer at 0 position  
         } catch (Exception error) {
@@ -65,20 +65,20 @@ public class Base_Datos {
         try {
             RandomAccessFile raf = new RandomAccessFile("Estudiantes.txt", "rw");
             long a=raf.length();
-            System.out.println(a+" asi de larga esta mi verga");
         for (int i = 0; i <a ; i=i+92) {
-            System.out.println(i);
+//            System.out.println(i);
+
             
-            Datos_Basicos D = new Datos_Basicos();
+            Datos_Basicos_Estudiantes D = new Datos_Basicos_Estudiantes();
             raf.seek(i);
-           
+           D.setId(raf.readInt());
             char[] nombre=new char[20];
             for (int j = 0; j < 20; j++) {
                 nombre[j]=raf.readChar();
             }
-            for (int j = 0; j < nombre.length; j++) {
-                System.out.println(nombre[j]);
-            }
+//            for (int j = 0; j < nombre.length; j++) {
+//                System.out.println(nombre[j]);
+//            }
             D.setName(nombre);
          
             char[] apellido=new char[20];
@@ -87,33 +87,21 @@ public class Base_Datos {
             }
             D.setLastname(apellido);
             
-            D.setPromedio(raf.readDouble());
-            D.setGenero(raf.readInt());
+            D.setTelefono(raf.readInt());
+            
             
             colita.add(D);
-            System.out.println(D.getName());
-            System.out.println(D.getLastname());
-            System.out.println(D.getPromedio());
-            System.out.println(D.getGenero());
+//            System.out.println(D.getName());
+//            System.out.println(D.getLastname());
+//            System.out.println(D.getPromedio());
+//            System.out.println(D.getGenero());
             
         }
             
       } catch (IOException ex) {
          ex.printStackTrace();
       }
-        Collections.sort(colita, new Comparator() {
-	
-
-            
-            public int compare(Datos_Basicos p1, Datos_Basicos p2) {
-                return new Integer((int)p1.getPromedio()).compareTo(new Integer((int)p2.getPromedio()));
-            }
-
-            @Override
-            public int compare(Object o1, Object o2) {
-                return 0;
-            }
-        });
+        
        return colita;
     }
     

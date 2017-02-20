@@ -12,6 +12,14 @@
         <servlet-name>Registro</servlet-name>
         <servlet-class>Controlador.Registro</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Profesor</servlet-name>
+        <servlet-class>Controlador.Profesores</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Cursos</servlet-name>
+        <servlet-class>Controlador.Cursos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Portada</servlet-name>
         <url-pattern>/Portada</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>Registro</servlet-name>
         <url-pattern>/Registro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Cursos</servlet-name>
+        <url-pattern>/Cursos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Profesor</servlet-name>
+        <url-pattern>/Profesores</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

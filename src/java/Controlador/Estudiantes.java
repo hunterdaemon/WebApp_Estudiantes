@@ -5,8 +5,8 @@
  */
 package Controlador;
 
-import Modelo.Base_Datos;
-import Modelo.Datos_Basicos;
+import Modelo.Base_Datos_Estudiantes;
+import Modelo.Datos_Basicos_Estudiantes;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -25,8 +25,8 @@ import javax.servlet.http.HttpSession;
 public class Estudiantes extends HttpServlet {
             
     
-            Base_Datos bd=new Base_Datos();
-            Datos_Basicos db;
+            Base_Datos_Estudiantes bd=new Base_Datos_Estudiantes();
+            Datos_Basicos_Estudiantes db;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -48,12 +48,13 @@ public class Estudiantes extends HttpServlet {
             
             String userName= request.getParameter("Nombre");
             String userLastName= request.getParameter("Apellido");
-            String userPromedio= request.getParameter("Promedio");
-            String userGenero= request.getParameter("Sexo");
+            String userTelefono= request.getParameter("Telefono");
+            String userId= request.getParameter("ID");
             
             if (userName !=null && !userName.equalsIgnoreCase("") && userLastName !=null && !userLastName.equalsIgnoreCase("") 
-                    && userGenero !=null && userPromedio !=null && !userPromedio.equalsIgnoreCase("")) {
-                db=new Datos_Basicos(userName,userLastName,userPromedio,userGenero);
+                    && userTelefono !=null && !userTelefono.equalsIgnoreCase("") && userId !=null && !userId.equalsIgnoreCase(""))
+            {
+                db=new Datos_Basicos_Estudiantes(userName,userLastName,userId,userTelefono);
                 bd.agregar(db);
 //                out.println(bd.toString());
                 response.sendRedirect("Portada.html");
